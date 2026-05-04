@@ -46,21 +46,3 @@ function updateData() {
     document.getElementById("fuel").innerText = Math.floor(Math.random() * 300);
     document.getElementById("led").innerText = Math.floor(Math.random() * 255);
 }
-
-// update tiap 1 detik
-setInterval(updateData, 1000);
-
-const dbUrl = "https://smart-cars-a9536-default-rtdb.asia-southeast1.firebasedatabase.app/";
-
-function controlWindow(pos, action) {
-  fetch(dbUrl, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      pos: pos,
-      action: action
-    })
-  });
-}
